@@ -2,6 +2,7 @@ import collections
 from itertools import permutations
 import numpy
 
+
 def is_palindrome(x):
     x_copy = x
     rev = 0
