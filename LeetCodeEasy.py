@@ -9,4 +9,8 @@ Output: "s'teL ekat edoCteeL tsetnoc"
 
 # (2/14/2020 reverse_words)
 def reverse_words(s):
-    return s[::-1]
+    result = ""
+    total_string = s.split()
+    for word in total_string:
+        result += word[::-1] + " "
+    return result
