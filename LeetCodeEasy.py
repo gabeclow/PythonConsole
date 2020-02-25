@@ -67,25 +67,67 @@ def island_perimeter(self, island_array):
             else:
 
                 try:
-                    if island_array[index + 1][square_index] == 0: # if tile below is ocean, increase counter
+                    if island_array[index + 1][square_index] == 0:  # if tile below is ocean, increase counter
                         counter += 1
                 except IndexError:
                     counter += 1
                 try:
-                    if island_array[index - 1][square_index] == 0: # if tile above is ocean, increase counter
+                    if island_array[index - 1][square_index] == 0:  # if tile above is ocean, increase counter
                         counter += 1
                 except IndexError:
                     counter += 1
                 try:
-                    if island_array[index][square_index + 1] == 0 : # if tile on right is ocean, increase counter
+                    if island_array[index][square_index + 1] == 0:  # if tile on right is ocean, increase counter
                         counter += 1
                 except IndexError:
                     counter += 1
                 try:
-                    if island_array[index][square_index - 1] == 0: # if tile on left is ocean, increase counter
+                    if island_array[index][square_index - 1] == 0:  # if tile on left is ocean, increase counter
                         counter += 1
                 except IndexError:
                     counter += 1
     print(str(counter))
     return counter
+
+
+def is_armstrong_num(self, num):
+    result = 0
+    num_array = []
+    num_of_nums = 0
+    calculation = num
+    while calculation % 10 > 0:
+        num_of_nums += 1
+        num_array.append(calculation % 10)
+        calculation = calculation/10
+        calculation = calculation.__trunc__()
+
+    for number in num_array:
+        result += number ** num_of_nums
+    if num == result:
+        return True
+    else:
+        return False
+
+
+def score_from_2d_arr(self, arr):
+    dic = {}
+    for num_set in arr:
+        if dic.__contains__(num_set[0]):
+            value = dic[num_set[0]]
+            value[1] = value[1] + 1
+            value[0] += num_set[1]
+            dic[num_set[0]] = value
+            # value = dic[num_set[0]]
+            # dic[num_set[0]] = [num_set[1] + dic[num_set[0]]][value + 1]
+        else:
+            dic[num_set[0]] = [num_set[1], 1]
+    for key, number_set in dic.items():
+        print(number_set[0] / number_set[1])
+
+
+def common_chars(s_array):
+    for word in s_array:
+        dictionary = collections.Counter(word)
+    print(dictionary)
+
 
